@@ -1,16 +1,10 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { User } from "@deemlol/next-icons";
+import { FeedbackDialog } from "./components/FeedbackDialog";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -24,10 +18,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className="bg-[#e9e4d4]">
         {children}
+        {/* <div className="fixed right-10 bottom-10 w-16 h-16 bg-red-500 rounded-full"></div> */}
+        <FeedbackDialog>
+        <div className="fixed bottom-10 right-10 bg-red-500 p-5 rounded-full hover:cursor-pointer">
+            <User size={24} color="#FFFFFF" />
+        </div>
+        </FeedbackDialog>
       </body>
     </html>
   );
