@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { User } from "@deemlol/next-icons";
-import { FeedbackDialog } from "./components/FeedbackDialog";
+import Navbar from "./components/shared/Navbar/Navbar";
+import { NavbarProvider } from "./providers/NavbarProvider";
+import { Sidebar } from "./components/shared/Navbar/Sidebar";
 
 
 
@@ -18,15 +19,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="bg-[#e9e4d4]">
-        {children}
-        {/* <div className="fixed right-10 bottom-10 w-16 h-16 bg-red-500 rounded-full"></div> */}
-        <FeedbackDialog>
-        <div className="fixed bottom-10 right-10 bg-red-500 p-5 rounded-full hover:cursor-pointer">
-            <User size={24} color="#FFFFFF" />
-        </div>
-        </FeedbackDialog>
-      </body>
+      <NavbarProvider>
+        <body className="bg-0 overflow-hidden flex flex-col relative h-[100vh]">
+          <Navbar />
+          <Sidebar />
+          <div className="flex flex-1 flex-col">{children}</div>
+        </body>
+      </NavbarProvider>
     </html>
   );
 }
