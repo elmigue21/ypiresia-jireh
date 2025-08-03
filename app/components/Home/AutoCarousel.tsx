@@ -21,7 +21,7 @@ export function AutoCarousel() {
   return (
     <Carousel
       plugins={[plugin.current]}
-      className="w-full relative flex justify-center bg-red-500"
+      className="w-full relative flex justify-center"
       onMouseEnter={plugin.current.stop}
       onMouseLeave={plugin.current.reset}
     >
