@@ -20,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <NavbarProvider>
-        <body className="bg-0 overflow-hidden flex flex-col relative h-[100vh]">
+        <body className="bg-0 flex flex-col relative h-screen">
           <Navbar />
           <Sidebar />
           <div className="flex flex-1 flex-col">{children}</div>

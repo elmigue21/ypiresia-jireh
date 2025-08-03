@@ -21,15 +21,15 @@ export function AutoCarousel() {
   return (
     <Carousel
       plugins={[plugin.current]}
-      className="w-full h-[500px] bg-blue-500"
+      className="w-full relative flex justify-center bg-red-500"
       onMouseEnter={plugin.current.stop}
       onMouseLeave={plugin.current.reset}
     >
-      <CarouselContent className="h-full">
+      <CarouselContent className="">
         {Array.from({ length: 5 }).map((_, index) => (
-          <CarouselItem key={index} className="h-[500px] aspect-[16/9]">
+          <CarouselItem key={index} className="">
             <div className=" h-full">
-              <Card className="bg-transparent rounded">
+              <Card className="bg-transparent rounded border-0">
                 <CardContent className="flex items-center justify-center h-full">
                   <Image
                     src="/photos/1.jpg"
@@ -45,8 +45,8 @@ export function AutoCarousel() {
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselPrevious />
-      <CarouselNext className="absolute right-0" />
+      <CarouselPrevious className="absolute left-0 hover:cursor-pointer"/>
+      <CarouselNext className="absolute right-0 hover:cursor-pointer" />
     </Carousel>
   );
 }

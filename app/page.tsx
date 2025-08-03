@@ -4,10 +4,14 @@ import { AutoCarousel } from './components/Home/AutoCarousel';
 export default function Home() {
 
   return (
-    <div className="h-full">
-      <div className="flex items-center justify-center">
+    <div className="">
+      <div className="flex justify-center h-[95vh]">
         <AutoCarousel />
       </div>
+      <div className="pb-20">qweqweqweqweqwe</div>
+      <div className="pb-20">qweqweqweqweqwe</div>
+      <div className="pb-20">qweqweqweqweqwe</div>
+      <div className="pb-20">qweqweqweqweqwe</div>
     </div>
   );
 }
