@@ -21,32 +21,30 @@ export function AutoCarousel() {
   return (
     <Carousel
       plugins={[plugin.current]}
-      className="w-full relative flex justify-center"
+      className="w-full h-full relative flex justify-center"
       onMouseEnter={plugin.current.stop}
       onMouseLeave={plugin.current.reset}
     >
-      <CarouselContent className="">
+      <CarouselContent>
         {Array.from({ length: 5 }).map((_, index) => (
-          <CarouselItem key={index} className="">
-            <div className=" h-full">
-              <Card className="bg-transparent rounded border-0">
-                <CardContent className="flex items-center justify-center h-full">
-                  <Image
-                    src="/photos/1.jpg"
-                    alt="img"
-                    className="h-full w-auto object-contain rounded"
-                    width={0} // Required by next/image to prevent layout shift
-                    height={0}
-                    sizes="100vw"
-                  />
-                </CardContent>
-              </Card>
-            </div>
+          <CarouselItem key={index}>
+            <Card className="bg-transparent rounded border-0 p-0 m-0 shadow-none">
+              <CardContent className="flex items-center justify-center w-full border-0 shadow-none m-0 p-0">
+                <Image
+                  src="/photos/1.jpg"
+                  alt="img"
+                  className="h-full w-auto object-contain opacity-40"
+                  width={0} // Required by next/image to prevent layout shift
+                  height={0}
+                  sizes="100vw"
+                />
+              </CardContent>
+            </Card>
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselPrevious className="absolute left-0 hover:cursor-pointer"/>
-      <CarouselNext className="absolute right-0 hover:cursor-pointer" />
+      <CarouselPrevious className="absolute left-2 z-10 hidden sm:flex hover:cursor-pointer active:scale-80" />
+      <CarouselNext className="absolute right-2 z-10 hidden sm:flex hover:cursor-pointer active:scale-80" />
     </Carousel>
   );
 }
