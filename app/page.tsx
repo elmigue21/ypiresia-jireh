@@ -1,7 +1,8 @@
 import React from 'react'
 // import { AutoCarousel } from './components/Home/AutoCarousel';
 import { AutoCarousel } from '@/components/shared/carousel/AutoCarousel';
-import HeightWithNavbarDiv from '../components/Navbar/HeightWithNavbarDiv';
+// import HeightWithNavbarDiv from '../components/Navbar/HeightWithNavbarDiv';
+import HeightWithNavbarDiv from '@/components/shared/Navbar/HeightWithNavbarDiv';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import Image from 'next/image';
@@ -38,6 +39,7 @@ export default function Home() {
         </div>
         <AutoCarousel images={landingBg} />
       </HeightWithNavbarDiv>
+      
       <HeightWithNavbarDiv>
         <div className="h-full flex w-full">
           <div className="relative aspect-[4/3] p-10 w-2/5 h-auto ">
@@ -61,7 +63,9 @@ export default function Home() {
           </div>
         </div>
       </HeightWithNavbarDiv>
+
       <HeightWithNavbarDiv>
+        {/* TO FIX:  OVERFLOW */}
         <div className="w-full h-full gap-5 flex flex-col">
           <h1 className="w-full text-center bg-orange-500 p-2">PACKAGES</h1>
           <p className="text-center w-full">
@@ -94,11 +98,11 @@ export default function Home() {
         </div>
       </HeightWithNavbarDiv>
 
-      <div className="flex flex-col items-center justify-center h-full">
-        <Separator
+      <div className="flex flex-col items-center justify-center my-5">
+        {/* <Separator
           className="w-3/4 mx-auto my-2 shrink-0"
           orientation="horizontal"
-        />
+        /> */}
         <h1 className="text-2xl w-3/4 my">Book Now</h1>
         <p className="w-3/4">
           We would love an opportunity to cater for your events. If you have any
@@ -109,13 +113,13 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="flex items-center justify-evenly w-full overflow-x-hidden">
+      <div className="flex items-center justify-evenly w-full overflow-x-hidden my-5">
         {navValues.map((val, index) => {
           return (
             <React.Fragment key={index}>
               <Link
                 href={val.link}
-                className="hover:bg-slate-200 flex-1 text-center p-20 transition-all rounded hover:scale-105 hover:shadow-2xl"
+                className="hover:bg-slate-200 flex-1 text-center p-5 transition-all rounded hover:scale-105 hover:shadow-2xl"
               >
                 {val.label}
               </Link>

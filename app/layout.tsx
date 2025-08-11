@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Navbar from "../components/Navbar/Navbar";
+// import Navbar from "../components/shared/Navbar/Navbar";
 import { NavbarProvider } from "../providers/NavbarProvider";
-import { Sidebar } from "../components/Navbar/Sidebar";
-import MessengerBubble from "../components/MessengerBubble/MessengerBubble";
+// import { Sidebar } from "../components/Navbar/Sidebar";
+import Navbar from "../components/shared/Navbar/Navbar";
+import { Sidebar } from "@/components/shared/Navbar/Sidebar";
+import MessengerBubble from "../components/shared/MessengerBubble/MessengerBubble";
 
 
 
