@@ -1,3 +1,4 @@
+'use client'
 import React from 'react'
 // import { AutoCarousel } from './components/Home/AutoCarousel';
 import { AutoCarousel } from '@/components/shared/carousel/AutoCarousel';
@@ -10,6 +11,7 @@ import { MapPin, Phone } from "lucide-react";
 import { navValues } from '@/lib/constants/constants';
 import Link from 'next/link';
 import BookingForm from '@/components/shared/forms/BookingForm';
+import { useIsSmallScreen } from '@/hooks/useIsSmallScreen';
 
 
 const feedbacks = [
@@ -24,6 +26,8 @@ const landingBg = [
 ];
 
 export default function Home() {
+
+  const isSmallScreen = useIsSmallScreen();
   return (
     <>
       <HeightWithNavbarDiv navbarPadding>
@@ -108,20 +112,22 @@ export default function Home() {
           We would love an opportunity to cater for your events. If you have any
           questions, call us or drop us an email.
         </p>
-        <div className='w-1/2'>
+        <div className='w-full md:w-1/2'>
           <BookingForm />
         </div>
       </div>
 
-      <div className="flex items-center justify-evenly w-full overflow-x-hidden my-5">
+      <div className="flex items-center justify-evenly w-full overflow-hidden my-5 h-10">
         {navValues.map((val, index) => {
+          const Icon = val.icon;
           return (
             <React.Fragment key={index}>
               <Link
                 href={val.link}
-                className="hover:bg-slate-200 flex-1 text-center p-5 transition-all rounded hover:scale-105 hover:shadow-2xl"
+                className="hover:bg-slate-200 flex-1 text-center md:p-5 transition-all rounded hover:scale-105 hover:shadow-2xl flex items-center justify-center gap-2"
               >
-                {val.label}
+                {Icon && <Icon className='text-lg md:text-2xl'/>}
+                {!isSmallScreen &&<h2>{val.label}</h2> } 
               </Link>
               {index !== navValues.length - 1 && (
                 <Separator
@@ -135,7 +141,7 @@ export default function Home() {
       </div>
 
       <div>
-        <div className="flex items-center justify-center flex-col">
+        <div className="flex  flex-col">
           <div>
             <div className="flex">
               <MapPin />
@@ -143,6 +149,7 @@ export default function Home() {
                 <li>Address #123 Street Barangay City lorem</li>
               </ul>
             </div>
+
             <div className="flex">
               <Phone />
               <ul>

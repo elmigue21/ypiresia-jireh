@@ -27,6 +27,7 @@ import { DatePicker } from "../date/DatePicker";
 import { cn } from "@/lib/utils";
 import { Textarea } from "@/components/ui/textarea";
 
+
 const BookingForm = ({
   className,
   gridColumn,
@@ -34,8 +35,10 @@ const BookingForm = ({
   className?: string;
   gridColumn?: string;
 }) => {
-  const [currentTab, setCurrentTab] = useState<string>("event");
 
+  
+  const [currentTab, setCurrentTab] = useState<string>("event");
+const timeRegex = /^([01]\d|2[0-3]):([0-5]\d)(:[0-5]\d)?$/;
   const bookingSchema = z.object({
     EventType: z
       .string({ message: "Event Type is required." })
@@ -56,6 +59,9 @@ const BookingForm = ({
           message: "Event date must be today or later",
         }
       ),
+     EventTime: z
+    .string()
+    .regex(timeRegex, "Invalid time format, expected HH:mm or HH:mm:ss"),
     EventAddress: z.string().min(1, "Event Adress is required."),
     EventPax: z.number().min(1, "Must be at least 1"),
     EventNotes: z.string().optional(),
@@ -75,6 +81,7 @@ const BookingForm = ({
     defaultValues: {
       EventType: "",
       EventDate: undefined, // or null if you're handling dates specially
+      EventTime:'00:00:00',
       EventAddress: "",
       EventPax: 0, // start at minimum
       EventNotes: "",
@@ -175,6 +182,32 @@ const BookingForm = ({
                             "w-48 justify-between font-normal border",
                             form.formState.errors.EventDate && "border-red-500"
                           )}
+                        />
+                      </FormControl>
+                      <FormMessage
+                        className="font-sans"
+                        suppressHydrationWarning
+                      />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="EventTime"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel suppressHydrationWarning>
+                        Event Time *
+                      </FormLabel>
+                      <FormControl>
+                        <Input
+                          type="time"
+                          {...field}
+                          value={field.value ?? ""}
+                          id="time-picker"
+                          step="1"
+                          className="bg-background appearance-none [&::-webkit-calendar-picker-indicator]:hidden [&::-webkit-calendar-picker-indicator]:appearance-none"
+                          suppressHydrationWarning
                         />
                       </FormControl>
                       <FormMessage
