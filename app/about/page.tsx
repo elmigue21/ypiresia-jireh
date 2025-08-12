@@ -1,4 +1,5 @@
-import HeightWithNavbarDiv from '@/components/Navbar/HeightWithNavbarDiv'
+// import HeightWithNavbarDiv from '@/components/Navbar/HeightWithNavbarDiv'
+import HeightWithNavbarDiv from '@/components/shared/Navbar/HeightWithNavbarDiv';
 import React from 'react'
 import Image from 'next/image'
 import { Separator } from '@/components/ui/separator';

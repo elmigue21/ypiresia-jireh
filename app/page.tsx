@@ -7,11 +7,12 @@ import HeightWithNavbarDiv from '@/components/shared/Navbar/HeightWithNavbarDiv'
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import Image from 'next/image';
-import { MapPin, Phone } from "lucide-react";
+
 import { navValues } from '@/lib/constants/constants';
 import Link from 'next/link';
 import BookingForm from '@/components/shared/forms/BookingForm';
 import { useIsSmallScreen } from '@/hooks/useIsSmallScreen';
+import HomeFooter from '@/components/home/HomeFooter';
 
 
 const feedbacks = [
@@ -63,7 +64,8 @@ export default function Home() {
               skdfjnaskldfnaskljdfnasljdfnasldfnalsjdfnaklsdjfnkasndfkja dfkj
               asdfkasdf jasdj faksd fkads f
             </p>
-            <h2>{"Read More >"}</h2>
+            <Link href='/about' className='underline hover:cursor-pointer transition-all hover:text-blue-500'
+            >{"Read More >"}</Link>
           </div>
         </div>
       </HeightWithNavbarDiv>
@@ -117,7 +119,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="flex items-center justify-evenly w-full overflow-hidden my-5 h-10">
+      <div className="flex items-center justify-evenly w-full overflow-hidden my-5">
         {navValues.map((val, index) => {
           const Icon = val.icon;
           return (
@@ -140,27 +142,7 @@ export default function Home() {
         })}
       </div>
 
-      <div>
-        <div className="flex  flex-col">
-          <div>
-            <div className="flex">
-              <MapPin />
-              <ul>
-                <li>Address #123 Street Barangay City lorem</li>
-              </ul>
-            </div>
-
-            <div className="flex">
-              <Phone />
-              <ul>
-                <li>Globe: 099712739123</li>
-                <li>Smart: 099712739123</li>
-                <li>Landline : 099712739123</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
+     <HomeFooter/>
     </>
   );
 }
