@@ -8,11 +8,14 @@ import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import Image from 'next/image';
 
-import { navValues } from '@/lib/constants/constants';
+// import { navValues } from '@/lib/constants/constants';
 import Link from 'next/link';
 import BookingForm from '@/components/shared/forms/BookingForm';
-import { useIsSmallScreen } from '@/hooks/useIsSmallScreen';
-import HomeFooter from '@/components/home/HomeFooter';
+// import { useIsSmallScreen } from '@/hooks/useIsSmallScreen';
+// import HomeFooter from '@/components/shared/Navbar/Footer';
+import Footer from '@/components/shared/Navbar/Footer';
+import BottomNav from '@/components/shared/Navbar/BottomNav';
+
 
 
 const feedbacks = [
@@ -28,7 +31,7 @@ const landingBg = [
 
 export default function Home() {
 
-  const isSmallScreen = useIsSmallScreen();
+  // const isSmallScreen = useIsSmallScreen();
   return (
     <>
       <HeightWithNavbarDiv navbarPadding>
@@ -44,7 +47,7 @@ export default function Home() {
         </div>
         <AutoCarousel images={landingBg} />
       </HeightWithNavbarDiv>
-      
+
       <HeightWithNavbarDiv>
         <div className="h-full flex w-full">
           <div className="relative aspect-[4/3] p-10 w-2/5 h-auto ">
@@ -64,8 +67,12 @@ export default function Home() {
               skdfjnaskldfnaskljdfnasljdfnasldfnalsjdfnaklsdjfnkasndfkja dfkj
               asdfkasdf jasdj faksd fkads f
             </p>
-            <Link href='/about' className='underline hover:cursor-pointer transition-all hover:text-blue-500'
-            >{"Read More >"}</Link>
+            <Link
+              href="/about"
+              className="underline hover:cursor-pointer transition-all hover:text-blue-500"
+            >
+              {"Read More >"}
+            </Link>
           </div>
         </div>
       </HeightWithNavbarDiv>
@@ -114,12 +121,12 @@ export default function Home() {
           We would love an opportunity to cater for your events. If you have any
           questions, call us or drop us an email.
         </p>
-        <div className='w-full md:w-1/2'>
+        <div className="w-full md:w-1/2">
           <BookingForm />
         </div>
       </div>
 
-      <div className="flex items-center justify-evenly w-full overflow-hidden my-5">
+      {/* <div className="flex items-center justify-evenly w-full overflow-hidden my-5">
         {navValues.map((val, index) => {
           const Icon = val.icon;
           return (
@@ -140,9 +147,10 @@ export default function Home() {
             </React.Fragment>
           );
         })}
-      </div>
+      </div> */}
+      <BottomNav />
 
-     <HomeFooter/>
+      <Footer />
     </>
   );
 }
