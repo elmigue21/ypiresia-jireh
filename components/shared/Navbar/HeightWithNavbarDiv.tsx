@@ -7,10 +7,12 @@ const HeightWithNavbarDiv = ({
   children,
   className,
   navbarPadding,
+  fixHeight,
 }: {
   children: React.ReactNode;
   className?: string;
   navbarPadding?: boolean;
+  fixHeight?: boolean;
 }) => {
   const { navbarHeight } = useNavbar();
   const isSmall = useIsSmallScreen();
@@ -19,7 +21,7 @@ const HeightWithNavbarDiv = ({
     <div
       className={`relative ${className ?? ""}`}
       style={{
-        height: isSmall ? "auto" : `calc(100vh - ${navbarHeight}px)`,
+        height: isSmall ? "auto" : fixHeight ?  `calc(100vh - ${navbarHeight}px)` : '',
         marginTop: navbarPadding ? `${navbarHeight}px` : undefined,
       }}
     >

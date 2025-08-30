@@ -81,7 +81,7 @@ const timeRegex = /^([01]\d|2[0-3]):([0-5]\d)(:[0-5]\d)?$/;
     defaultValues: {
       EventType: "",
       EventDate: undefined, // or null if you're handling dates specially
-      EventTime:'00:00:00',
+      EventTime:undefined,
       EventAddress: "",
       EventPax: 0, // start at minimum
       EventNotes: "",

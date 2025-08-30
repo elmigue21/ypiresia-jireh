@@ -7,19 +7,34 @@ import Link from 'next/link'
 
 const BookNow = () => {
   return (
-    <HeightWithNavbarDiv navbarPadding>
-      <div className="flex items-center justify-center flex-col">
-        <h1 className="w-full bg-amber-500 p-5 text-center">BOOK NOW</h1>
-        <div className="w-full sm:w-3/4 flex items-center justify-center m-5">
-          <BookingForm />
+    <>
+      <HeightWithNavbarDiv navbarPadding>
+        <div className="flex items-center justify-center flex-col h-full">
+          <h1 className="w-full bg-amber-500 p-5 text-center">BOOK NOW</h1>
+          <div className="w-full sm:w-3/4 flex items-center justify-center m-5">
+            <BookingForm />
+          </div>
         </div>
-      </div>
-      <div className='w-full h-50 flex justify-center md:justify-end items-center p-10'>
-        <Link href='/packages' className='bg-amber-500 p-5 rounded-xl hover:bg-amber-400 text-center'>Return to packages</Link>
-      </div>
-      <BottomNav/>
+        <div className="h-50 w-full">
+          <Link
+            href="/packages"
+            className="bg-amber-500 p-5 rounded-xl hover:bg-amber-400 text-center"
+          >
+            Return to packages
+          </Link>
+        </div>
+        {/* <div className="w-full h-50 flex justify-center md:justify-end items-center p-10">
+          <Link
+            href="/packages"
+            className="bg-amber-500 p-5 rounded-xl hover:bg-amber-400 text-center"
+          >
+            Return to packages
+          </Link>
+        </div> */}
+      </HeightWithNavbarDiv>
+      <BottomNav />
       <Footer />
-    </HeightWithNavbarDiv>
+    </>
   );
 }
 
