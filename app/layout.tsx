@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Navbar from "./components/shared/Navbar/Navbar";
-import { NavbarProvider } from "./providers/NavbarProvider";
-import { Sidebar } from "./components/shared/Navbar/Sidebar";
+// import Navbar from "../components/shared/Navbar/Navbar";
+import { NavbarProvider } from "../providers/NavbarProvider";
+// import { Sidebar } from "../components/Navbar/Sidebar";
+import Navbar from "../components/shared/Navbar/Navbar";
+import { Sidebar } from "@/components/shared/Navbar/Sidebar";
+import MessengerBubble from "../components/shared/MessengerBubble/MessengerBubble";
 
 
 
@@ -23,6 +26,7 @@ export default function RootLayout({
         <body className="bg-0 flex flex-col relative h-screen">
           <Navbar />
           <Sidebar />
+          <MessengerBubble/>
           <div className="flex flex-1 flex-col">{children}</div>
         </body>
       </NavbarProvider>
